@@ -246,7 +246,7 @@ function extractThemeColor(imgEl, callback) {
   const canvas = document.createElement('canvas');
   const ctx = canvas.getContext('2d');
 
-  // zmniejszamy do 1x1, żeby dostać średnią barwę
+  
   canvas.width = 1;
   canvas.height = 1;
   ctx.drawImage(imgEl, 0, 0, 1, 1);
