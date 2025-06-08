@@ -1,3 +1,4 @@
+
 const characters = [
         { name: "Neuvillette", image: "/strona/zdj/neuvillette.png", element: "hydro", link: "neuvillette.html" },
         { name: "Clorinde", image: "/strona/zdj/clorinde.png", element: "electro", link: "clorinde.html" },
