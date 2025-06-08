@@ -1,4 +1,40 @@
-    const characterGallery = document.getElementById("gallery");
+const characters = [
+        { name: "Neuvillette", image: "/strona/zdj/neuvillette.png", element: "hydro", link: "neuvillette.html" },
+        { name: "Clorinde", image: "/strona/zdj/clorinde.png", element: "electro", link: "clorinde.html" },
+        { name: "Furina", image: "/strona/zdj/furina.png", element: "hydro", link: "furina.html" },
+        { name: "Arlecchino", image: "/strona/zdj/arlecchino.png", element: "pyro", link: "arlecchino.html" },
+        { name: "Mona", image: "/strona/zdj/mona.png", element: "hydro", link: "mona.html" },
+        { name: "Navia", image: "/strona/zdj/navia.png", element: "geo", link: "navia.html" },
+        { name: "Shogun", image: "/strona/zdj/shogun.png", element: "electro", link: "shogun.html" },
+        { name: "Yae Miko", image: "/strona/zdj/yae-miko.png", element: "electro", link: "yae-miko.html" },
+        { name: "Kazuha", image: "/strona/zdj/kazuha.png", element: "anemo", link: "kazuha.html" },
+        { name: "Diluc", image: "/strona/zdj/diluc.png", element: "pyro", link: "diluc.html" },
+        { name: "Jean", image: "/strona/zdj/jean.png", element: "anemo", link: "jean.html" },
+        { name: "Yelan", image: "/strona/zdj/yelan.png", element: "hydro", link: "yelan.html" },
+        { name: "Nahida", image: "/strona/zdj/nahida.png", element: "dendro", link: "nahida.html" },
+        { name: "Keqing", image: "/strona/zdj/keqing.png", element: "electro", link: "keqing.html" },
+        { name: "Alhaitham", image: "/strona/zdj/alhaitham.png", element: "dendro", link: "alhaitham.html" },
+        { name: "Chasca", image: "/strona/zdj/chasca.png", element: "anemo", link: "chasca.html" },
+        { name: "Citlali", image: "/strona/zdj/citlali.png", element: "cryo", link: "citlali.html" },
+        { name: "Hu Tao", image: "/strona/zdj/hu-tao.png", element: "pyro", link: "hu-tao.html" },
+        { name: "Kinich", image: "/strona/zdj/kinich.png", element: "dendro", link: "kinich.html" },
+        { name: "Mualani", image: "/strona/zdj/mualani.png", element: "hydro", link: "mualani.html" },
+        { name: "Shenhe", image: "/strona/zdj/shenhe.png", element: "cryo", link: "shenhe.html" },
+        { name: "Wriothesley", image: "/strona/zdj/wriothesley.png", element: "cryo", link: "wriothesley.html" },
+        { name: "Xiangling", image: "/strona/zdj/xiangling.png", element: "pyro", link: "xiangling.html" },
+        { name: "Xilonen", image: "/strona/zdj/xilonen.png", element: "geo", link: "xilonen.html" },
+        { name: "Zhongli", image: "/strona/zdj/zhongli.png", element: "geo", link: "zhongli.html" },
+        { name: "Lyney", image: "/strona/zdj/lyney.png", element: "pyro", link: "lyney.html" },
+        { name: "Ganyu", image: "/strona/zdj/ganyu.png", element: "cryo", link: "ganyu.html" },
+        { name: "Eula", image: "/strona/zdj/eula.png", element: "cryo", link: "eula.html" },
+        { name: "Emilie", image: "/strona/zdj/emilie.png", element: "dendro", link: "emilie.html" },
+        { name: "Bennett", image: "/strona/zdj/bennett.png", element: "pyro", link: "bennett.html" },
+        { name: "Nilou", image: "/strona/zdj/nilou.png", element: "hydro", link: "nilou.html" },
+        { name: "Tighnari", image: "/strona/zdj/tighnari.png", element: "dendro", link: "tighnari.html" }
+    ];
+
+
+const characterGallery = document.getElementById("gallery");
 const filter           = document.querySelector(".filter-select");
 const searchInput      = document.querySelector(".search-input");
 
@@ -37,7 +73,7 @@ function renderGallery(list) {
     li.append(link);
     characterGallery.append(li);
 
-    // falowe pojawianie
+    
     setTimeout(() => {
       li.classList.add("show");
     }, idx * 150);
@@ -98,12 +134,12 @@ function fullFilter() {
     toShow = toShow.filter(li => li.id === value);
   }
 
-  // nadaj delay
+  //  delay
   toShow.forEach((li, idx) => {
     li.style.setProperty('--delay', `${idx * 30}ms`);
   });
 
-  // falowe pokazanie
+  
   requestAnimationFrame(() => {
     toShow.forEach(li => {
       li.classList.remove('hidden');
@@ -111,7 +147,7 @@ function fullFilter() {
     });
   });
 
-  // brak wyników
+  // no results
   const msg = characterGallery.querySelector('.NoSearchingResult');
   if (!toShow.length) {
     if (!msg) {
