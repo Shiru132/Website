@@ -72,7 +72,7 @@ function renderGallery(list) {
     li.append(link);
     characterGallery.append(li);
 
-    
+    // falowe pojawianie
     setTimeout(() => {
       li.classList.add("show");
     }, idx * 150);
@@ -99,7 +99,7 @@ filter.addEventListener("change", () => {
     ? allCards
     : allCards.filter(li => li.id === value);
 
- 
+  // falowe pokazanie
   toShow.forEach((li, idx) => {
     setTimeout(() => {
       li.classList.remove("hidden");
@@ -133,11 +133,12 @@ function fullFilter() {
     toShow = toShow.filter(li => li.id === value);
   }
 
-  //  delay
+  // nadaj delay
   toShow.forEach((li, idx) => {
     li.style.setProperty('--delay', `${idx * 30}ms`);
   });
 
+  // falowe pokazanie
   requestAnimationFrame(() => {
     toShow.forEach(li => {
       li.classList.remove('hidden');
@@ -145,7 +146,7 @@ function fullFilter() {
     });
   });
 
-  // no results
+  // brak wyników
   const msg = characterGallery.querySelector('.NoSearchingResult');
   if (!toShow.length) {
     if (!msg) {
@@ -169,7 +170,7 @@ function debounce(fn, delay) {
   };
 }
 
-const debouncedFilter = debounce(applyFilter, 200);
+const debouncedFilter = debounce(fullFilter, 200);
 searchInput.addEventListener("input", debouncedFilter);
 
       //hamburger
@@ -245,7 +246,7 @@ function extractThemeColor(imgEl, callback) {
   const canvas = document.createElement('canvas');
   const ctx = canvas.getContext('2d');
 
-  
+ 
   canvas.width = 1;
   canvas.height = 1;
   ctx.drawImage(imgEl, 0, 0, 1, 1);

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pl" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamers | Postacie</title>
+    <meta name="description" content="Kompendium wiedzy o postaciach z Genshin Impact">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="naukajs.css">
+    <script src="gallery.js" defer></script>
+</head>
+<body>
+  <div class="page">
+  <header class="glass-effect">
+        <nav class="nav-container">
+          
+            <ul class="nav-links desktop-menu">
+                <li><a href="Postacie.html" class="nav-link">Postacie</a></li>
+                <li><a href="bronie.html" class="nav-link">Bronie</a></li>
+                <li><a href="Artefakty.html" class="nav-link">Artefakty</a></li>
+            </ul>
+            <i class="fas fa-bars hamburger"></i>
+            <div class="menu-overlay"></div>
+        </nav>
+        <!-- Mobile Menu Structure -->
+        <ul class="mobile-menu">
+            <li><a href="Postacie.html" class="nav-link">Postacie</a></li>
+            <li><a href="Bronie.html" class="nav-link">Bronie</a></li>
+            <li><a href="Artefakty.html" class="nav-link">Artefakty</a></li>
+        </ul>
+    </header>
+
+
+
+        <main class="content-wrapper">
+            <section class="characters-section">
+                <h1 class="section-title">Postacie Genshin Impact</h1>
+                <div class="search-filter">
+                    <input type="text" placeholder="Wyszukaj postać..." class="search-input">
+                    <select class="filter-select" id="select-element">
+                        <option value="all">Wszystkie elementy</option>
+                        <option value="pyro">Pyro</option>
+                        <option value="hydro">Hydro</option>
+                        <option value="anemo">Anemo</option>
+                        <option value="electro">Electro</option>
+                        <option value="cryo">Cryo</option>
+                        <option value="geo">Geo</option>
+                        <option value="dendro">Dendro</option>
+                    </select>
+                </div>
+                
+                <ul class="characters-grid" id="gallery">
+                    <!-- Postacie będą wstrzyknięte tutaj przez JavaScript -->
+                </ul>
+            </section>
+        </main>
+          
+        <footer>
+            
+            
+            <aside>
+                <ul>
+                    <li><a href="#">Do góry</a></li>
+                    <li><a href="#">Edit</a></li>
+                    <li><a href="#">View</a></li>
+                    <li><a href="help.html">Pomoc</a></li>
+                </ul>
+            </aside>
+            <div class="footer-bottom">
+                <p class="footer-creators">Twórcy: NaTesta</p>
+                <p class="footer-copyright">&copy; 2025 Gamers. Wszelkie prawa zastrzeżone.</p>
+            </div>
+           
+        </footer>
+        <button class="scroll-to-top" aria-label="Scroll to top">
+  ↑
+</button>
+
+   </div>
+</body>
+</html>

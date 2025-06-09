@@ -1,0 +1,19 @@
+{ "weapon": [
+  { "name": "Tome of the Eternal Flow",
+    "image": "/strona/bronieZdj/Neuviwepsig.png",
+    "description": "Neuvillette's signature weapon providing CRIT DMG and HP% boosts.",
+    "link": "Eternal-tome.html"
+  },
+  {
+    "weaponName": "Sacrificial Jade",
+    "image": "/strona/bronieZdj/Neuvibpwep.png",
+    "description": "Increases HP and provides energy regeneration benefits.",
+    "link": "Sacrificial-jade.html"
+  },
+  {
+    "weaponName": "Prototype Amber",
+    "image": "/strona/bronieZdj/Neuvibestf2p.png",
+    "description": "Best F2P option providing energy regeneration and healing.",
+    "link": "Prototype-amber.html"
+  }
+] }

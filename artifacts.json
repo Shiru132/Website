@@ -1,0 +1,37 @@
+{
+  "artifacts": [
+    {
+      "artifactName": "Marechaussee Hunter (4-piece)",
+      "images": [
+        "/strona/artefakty/MarechausseeHunter.png",
+        "/strona/artefakty/MarechausseeHunter1.png",
+        "/strona/artefakty/MarechausseeHunter2.png",
+        "/strona/artefakty/MarechausseeHunter3.png",
+        "/strona/artefakty/MarechausseeHunter4.png"
+      ],
+      "link": "artifacts.html#Marechaussee-Hunter"
+    },
+    {
+      "artifactName": "Deepwood Memories (4-piece)",
+      "images": [
+        "/strona/artefakty/DeepwoodMemories.png",
+        "/strona/artefakty/DeepwoodMemories1.png",
+        "/strona/artefakty/DeepwoodMemories2.png",
+        "/strona/artefakty/DeepwoodMemories3.png",
+        "/strona/artefakty/DeepwoodMemories4.png"
+      ],
+      "link": "artifacts.html#Deepwood-Memories"
+    },
+    {
+      "artifactName": "Fragment of Harmonic Whimsy (4-piece)",
+      "images": [
+        "/strona/artefakty/FragmentOfHarmonicWhimsy.png",
+        "/strona/artefakty/FragmentOfHarmonicWhimsy1.png",
+        "/strona/artefakty/FragmentOfHarmonicWhimsy2.png",
+        "/strona/artefakty/FragmentOfHarmonicWhimsy3.png",
+        "/strona/artefakty/FragmentOfHarmonicWhimsy4.png"
+      ],
+      "link": "artifacts.html#FragmentOfHarmonicWhimsy"
+    }
+  ]
+}
