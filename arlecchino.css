@@ -89,8 +89,8 @@ header {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 5.5rem;       /* odstęp między linkami */
-  list-style: none;  /* usuwa kropki */
+  gap: 5.5rem;     
+  list-style: none;  
   padding: 0;
   margin: 0;
    justify-content: center;
@@ -101,7 +101,7 @@ header {
   color: var(--text-light);
   text-decoration: none;
   font-weight: 500;
-  padding: 0.5rem 0;  /* zwiększa klikalny obszar */
+  padding: 0.5rem 0;  
   transition: var(--transition);
  
 }
