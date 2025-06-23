@@ -7,14 +7,14 @@ hamburger.addEventListener('click', () => {
   overlay.classList.toggle('open');
 });
 
-// Optionally, clicking outside the menu (on the overlay) also closes it:
+
 overlay.addEventListener('click', () => {
   mobileMenu.classList.remove('open');
   overlay.classList.remove('open');
 });
 
 
-// Smooth scroll for internal anchor links
+// Smooth scroll 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -36,7 +36,7 @@ fetch('/naukaJS/weapons.json')
     return resp.json();
   })
   .then(data => {
-    // pass the array under the "weapon" key to the renderer
+  
     renderWeapons(data.weapon);
   })
   .catch(err => console.error('Error fetching JSON:', err));
@@ -80,7 +80,7 @@ fetch('/naukaJS/artifacts.json')
     return resp.json();
   })
   .then(data => {
-    // pass the array under the "artifacts" key to the renderer
+    
     renderArtifacts(data.artifacts);
   })
   .catch(err => console.error('Error fetching JSON:', err));
@@ -92,7 +92,7 @@ function renderArtifacts(items) {
     return;
   }
 
-  artifactsList.innerHTML = ''; // clear existing content
+  artifactsList.innerHTML = ''; 
 
   items.forEach((item, idx) => {
     const li   = document.createElement('li');
@@ -102,7 +102,7 @@ function renderArtifacts(items) {
     h3.textContent = item.artifactName;
     artifactsList.appendChild(h3);
     
-    // iterate through each image source
+   
     item.images.forEach(src => {
       const img = document.createElement('img');
       img.src   = src;
@@ -113,12 +113,12 @@ function renderArtifacts(items) {
     const p = document.createElement('p');
     p.textContent = item.description;
 
-    // assemble the <li> content
+ 
     li.append(link);
     artifactsList.appendChild(li);
     artifactsList.appendChild(p);
 
-    // staggered entry animation
+  
     setTimeout(() => li.classList.add('show'), idx * 150);
   });
 }
@@ -131,23 +131,23 @@ fetch('/naukaJS/rTeams.json')
     return resp.json();
   })
   .then(data => {
-    // data.characters is an array of objects: [{Hypercarry:[…]}, {Hyperbloom:[…]}, …]
+    
     renderTeams(data.characters);
   })
   .catch(err => console.error('Error fetching JSON:', err));
 
 
 function renderTeams(combos) {
-  // Select the section where we append the groups
+  
   const section = document.getElementById('rTeams');
   if (!section) return console.error('Missing .card card-teams in DOM');
 
-  // Clear everything except the <h2> section title
+
   const heading2 = section.querySelector('h2');
   section.innerHTML = '';
   section.appendChild(heading2);
 
-  // Derive slug from the URL, e.g. "arlecchino.html" → "Arlecchino"
+
   const slug = window.location.pathname
                  .split('/')
                  .pop()
@@ -162,11 +162,11 @@ function renderTeams(combos) {
   };
 
   combos.forEach(comboObj => {
-    // extract the combination name and its array of members
+
     const comboName = Object.keys(comboObj)[0];
     const members   = comboObj[comboName];
 
-    // create a <h3> for the combination name
+ 
     const h3 = document.createElement('h3');
     h3.textContent = comboName;
     section.appendChild(h3);
@@ -176,7 +176,7 @@ function renderTeams(combos) {
     ul.classList.add('team-list');
     section.appendChild(ul);
 
-    // build an array: [mainChar, ...members]
+  
     [mainChar, ...members].forEach((item) => {
       const li = document.createElement('li');
 
@@ -197,7 +197,7 @@ function renderTeams(combos) {
   });
 }
 
-// Helper to convert keys like "elementalSkill" → "Elemental Skill"
+
 function prettifyCategory(key) {
   return key
     .replace(/([A-Z])/g, ' $1')
@@ -211,7 +211,7 @@ const slug = window.location.pathname
   .replace('.html', '');
 const currentCharacter = slug.charAt(0).toUpperCase() + slug.slice(1);
 
-// Fetch and render talents based on the current character
+//talents render
 fetch('/naukaJS/talents.json')
   .then(resp => {
     if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
@@ -238,12 +238,12 @@ function renderTalents(talentsObj) {
   talentsList.innerHTML = '';
   passiveList.innerHTML  = '';
 
-  // 1) Render Normal Attack, Elemental Skill, and Elemental Burst
+ 
   ['normalAttack', 'elementalSkill', 'elementalBurst'].forEach((cat, catIdx) => {
     const info = talentsObj[cat];
     if (!info) return;
 
-    // Render each talent object (wrapped in an array for consistency)
+   
     [info].forEach((talent, idx) => {
       const li = document.createElement('li');
       li.className = 'talent-item';
@@ -265,7 +265,7 @@ function renderTalents(talentsObj) {
     });
   });
 
-  // 2) Render Passive Talents
+ //render passive talents
   const passives = talentsObj.passiveTalents || [];
   passives.forEach((talent, idx) => {
     const li = document.createElement('li');
