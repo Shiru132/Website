@@ -2,61 +2,51 @@
 
 (async function fetchDataFromApi() {
   try {
-    // 1) fetch list of artifact IDs
+    // Fetch list of artifact IDs
     const idsRes = await fetch('https://genshin.jmp.blue/artifacts');
     if (!idsRes.ok) throw new Error(`Nie udało się pobrać listy zestawów: ${idsRes.status}`);
-    const artifactIds = await idsRes.json(); // ["adventurer","archaic-petra",...]
+    const artifactIds = await idsRes.json();
 
-    // 2) fetch local artifacts.json
+    // fetch local json
     const imageDataRes = await fetch('/naukajs/artifacts.json');
     if (!imageDataRes.ok) throw new Error(`Błąd pobierania lokalnego JSON: ${imageDataRes.status}`);
-    const { artifacts: localArr } = await imageDataRes.json(); // tablica obiektów
+    const { artifacts: localArr } = await imageDataRes.json();
 
-    // 3) normalize function for artifact names
+    //  Normalize
     const normalize = str =>
-      str
-        .toLowerCase()
-        .replace(/[-’'"]/g, '')  // delete - "" and apostrophes
-        .replace(/\s+/g, '')     // delete spaces
-        .trim();
+      str.toLowerCase()
+         .replace(/[-’'"]/g, '')
+         .replace(/\s+/g, '')
+         .trim();
 
-    // data to artifacts
+    // data for each artifact
     const artifacts = await Promise.all(
       artifactIds.map(async (id, idx) => {
-        //  fetch  z API
         const res  = await fetch(`https://genshin.jmp.blue/artifacts/${id}`);
         if (!res.ok) throw new Error(`Błąd pobierania danych dla ${id}: ${res.status}`);
         const meta = await res.json();
 
-        // find local image by normalized name
         const localEntry = localArr.find(e =>
           normalize(e.artifactName) === normalize(meta.name)
         );
-        const imageUrl   = localEntry ? localEntry.image : '';
+        const imageUrl = localEntry ? localEntry.image : '';
 
-        // image status testing
         console.log(`${idx}: ${imageUrl}`);
 
-        // data to description
         const description = [
           `Max Rarity: ${meta.max_rarity}`,
           `2-piece bonus: ${meta['2-piece_bonus']}`,
           `4-piece bonus: ${meta['4-piece_bonus']}`,
           localEntry?.describe
-        ]
-          .filter(Boolean)
-          .join(' | ');
+        ].filter(Boolean).join(' | ');
 
-        return {
-          name:        meta.name,
-          image:       imageUrl,
-          description
-        };
+        return { name: meta.name, image: imageUrl, description };
       })
     );
 
-    
     renderArtifacts(artifacts);
+    
+    searchingByName();
 
   } catch (err) {
     console.error('Init error:', err);
@@ -65,7 +55,7 @@
 
 
 /**
- * li rendering
+ * Renders list items
  * @param {Array<{name:string, image:string, description:string}>} list
  */
 function renderArtifacts(list) {
@@ -80,50 +70,64 @@ function renderArtifacts(list) {
 
     title.textContent = item.name;
     if (item.name === 'Sacrifieur to the Firmament') {
-      
       li.classList.add('future-artifact');
     }
+
     li.classList.add('artifact-li');
     title.classList.add('artifact-name');
     desc.classList.add('artifact-description', 'hidden');
-    img.classList.add('artifact-image');
-    desc.textContent  = item.description;
 
+    img.classList.add('artifact-image');
     img.src = item.image;
     img.alt = item.name;
 
+    desc.textContent = item.description;
+    li.append(img, title, desc);
     li.addEventListener('click', () => openModal(item));
-
-    li.append(img,title, desc );
     ul.appendChild(li);
-
-    
   });
 }
 
 
-// searching 
-  const listEl = document.getElementById('artifactList');
-    const searchInput = document.getElementById('searchInput');
+// searching
+const searchInput = document.getElementById('searchInput');
+if (searchInput) {
+  const debouncedSearch = debounce(searchingByName, 150);
+  searchInput.addEventListener('input', debouncedSearch);
+}
 
+// filter 
 function searchingByName() {
-  const input = document.querySelector('.search');
-  const filter = input.value.toLowerCase();
-  const items = document.querySelectorAll('.artifact-li');
+  const filter = searchInput.value.trim().toLowerCase();
+  const items = Array.from(document.querySelectorAll('.artifact-li'));
+  const visibleItems = [];
 
   items.forEach(item => {
     const title = item.querySelector('.artifact-name').textContent.toLowerCase();
-    
     if (title.includes(filter)) {
       item.classList.remove('hidden');
+      visibleItems.push(item);
     } else {
       item.classList.add('hidden');
     }
   });
-}
-searchInput.addEventListener('input', searchingByName);
 
-// Inspect
+  visibleItems.forEach((li, idx) => {
+    li.style.setProperty('--delay', `${idx * 30}ms`);
+  });
+}
+
+// debounce
+function debounce(fn, delay = 200) {
+  let timeoutId;
+  return (...args) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => fn(...args), delay);
+  };
+}
+
+
+// Modal
 const modalOverlay = document.getElementById('artifactModal');
 const modalImg     = modalOverlay.querySelector('.modal-image');
 const modalTitle   = modalOverlay.querySelector('.modal-title');
@@ -131,10 +135,10 @@ const modalDesc    = modalOverlay.querySelector('.modal-desc');
 const modalClose   = modalOverlay.querySelector('.modal-close');
 
 function openModal(item) {
-  modalImg.src  = item.image;
-  modalImg.alt  = item.name;
+  modalImg.src = item.image;
+  modalImg.alt = item.name;
   modalTitle.textContent = item.name;
-  modalDesc.textContent  = item.description;
+  modalDesc.textContent = item.description;
   modalOverlay.classList.remove('hidden');
 }
 
