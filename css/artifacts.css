@@ -17,14 +17,21 @@
 
  
   --text-light: #ffffff;        
-  --text-muted: #777777;        
+  --text-muted: #777777;   
+  
 
 
-  --border-color: #3e3e3e;      
+  --border-color: #3e3e3e;     
 
  
-  --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+ 
+   --transition-duration: 0.3s;
+  --transition-timing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --delay: 0ms;
 }
+
+
 
 /* ========================
    Reset 
@@ -141,7 +148,7 @@ header {
   background: var(--light-bg);
   color: var(--text-light);
   font-size: 1rem;
-  transition: var(--transition);
+  transition: border-color var(--transition-duration) var(--transition-timing);
 }
 
 .search:focus {
@@ -171,8 +178,19 @@ header {
   width: 200px;
   height: 320px;
   cursor: pointer;
-  transition: var(--transition);
+ 
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    opacity: 0;
+  transform: translateY(10px);
+ transition:
+    opacity var(--transition-duration) var(--delay) var(--transition-timing),
+    transform var(--transition-duration) var(--delay) var(--transition-timing);
+
+}
+
+.artifact-li:not(.hidden) {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .artifact-image {
@@ -289,3 +307,6 @@ header {
   padding: 0.75rem;
   border-radius: 6px;
 }
+/* ======================
+   footer
+   ====================== */
