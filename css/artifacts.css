@@ -307,6 +307,78 @@ header {
   padding: 0.75rem;
   border-radius: 6px;
 }
+
+@media (max-width: 768px) {
+  
+  .menu-container {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  
+  .search {
+    max-width: none;
+    width: 100%;
+    font-size: 0.95rem;
+  }
+
+ 
+  .artifacts-list {
+    gap: 1rem;
+  }
+
+ 
+  .artifact-li {
+    width: calc(50% - 1rem);
+    height: auto;
+    padding: 0.75rem;
+    grid-template-rows: auto  auto auto;
+  }
+
+  .artifact-name {
+    font-size: 1.1rem;
+  }
+
+  .artifact-description {
+    font-size: 0.85rem;
+  }
+}
+
+
+@media (max-width: 480px) {
+ 
+  .navigation li {
+    margin: 0 0.75rem;
+    font-size: 1.2rem;
+  }
+
+ 
+  .artifact-li {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+
+  .search {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+  }
+
+  .modal-window {
+    width: 95%;
+    padding: 1rem;
+  }
+
+  .modal-title {
+    font-size: 1.4rem;
+  }
+
+  .modal-desc {
+    font-size: 0.9rem;
+  }
+}
+
+
 /* ======================
    footer
    ====================== */
