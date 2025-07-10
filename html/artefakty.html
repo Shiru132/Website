@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artefakty</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/png" sizes="64x64" href="img/zdj/favicon.png">
+
+
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script type="module" src="artefaktyJS/main.js" defer></script>
+    <link rel="stylesheet" href="CSS/artefakty.css">
+    
+</head>
+<body>
+    <header class="glass-effect">
+      
+        <nav class="navigation">
+            <ul>
+                <li><a href="gallery.html">Postacie</a></li>
+                <li><a href="Bronie.html">Bronie</a></li>
+                <li><a href="artefakty.html">Artefakty</a></li>
+            </ul>
+            <button id="hamburger" class="hamburger" aria-label="Otwórz menu"><i class="fas fa-bars"></i></button>
+            <div class="menu-overlay" aria-hidden="true"></div>
+        </nav>
+    </header>
+
+    <main class="menu-container">
+        <input class="search" type="text" id="searchInput" placeholder="Szukaj artefaktów...">
+        <ul class="artifacts-list">
+
+        </ul>
+
+<div id="artifactModal" class="modal-overlay hidden">
+  <div class="modal-window">
+    <button class="modal-close">&times;</button>
+    <img class="modal-image" src="" alt="">
+    <h2 class="modal-title"></h2>
+    <p class="modal-desc"></p>
+  </div>
+</div>
+        
+    </main>
+    
+</body>
+</html>
