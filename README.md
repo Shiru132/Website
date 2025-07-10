@@ -23,5 +23,6 @@ JavaScript: To enhance interactivity and dynamic content.
 
 View
 
+<img width="1904" height="956" alt="galleryView" src="https://github.com/user-attachments/assets/59e4f80e-af32-4ddc-8400-39680e5b80fb" />
 
 
