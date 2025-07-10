@@ -21,8 +21,14 @@ HTML & CSS: For structuring and styling the website.
 
 JavaScript: To enhance interactivity and dynamic content.
 
-View
+deskopt View
 
 <img width="1904" height="956" alt="galleryView" src="https://github.com/user-attachments/assets/59e4f80e-af32-4ddc-8400-39680e5b80fb" />
+
+movile View
+
+<img width="476" height="556" alt="galleryMobileView" src="https://github.com/user-attachments/assets/cd12dd9f-57d4-49b0-a470-07ac5fcf3833" />
+
+
 
 
