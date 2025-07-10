@@ -1,0 +1,450 @@
+/* ==========================
+   Variables
+   ========================== */
+:root {
+  --primary-color: #4daaf9;   
+  --secondary-color: #78c7ff; 
+  --dark-bg: #001f3f;        
+  --light-bg: #003366; 
+  --text-light: #ffffff;
+  --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ==========================
+   Reset & Base Styles
+   ========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  
+}
+
+body {
+  background: var(--dark-bg);
+  background-image: linear-gradient(
+    135deg,
+    rgba(0, 31, 63, 1)   0%,
+    rgba(0, 71, 159, 0.9) 30%,
+    rgba(0, 120, 230, 0.7) 50%,
+     rgba(0, 71, 159, 0.9) 70%,
+    rgba(0, 31, 63, 1)   100%
+  );
+  background-size: 200% 200%;
+  animation: pyroBackground 10s ease infinite;
+  color: var(--text-light);
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ==========================
+   Keyframe Animations
+   ========================== */
+@keyframes pyroBackground {
+  0%, 100% { background-position: 0% 0%; }
+  50%      { background-position: 100% 100%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+
+/* ==========================
+   Layout & Structure
+   ========================== */
+header {
+  background: linear-gradient(
+    52deg,
+    rgba(16, 37, 75, 0.6)  0%,
+    rgba(24, 58, 115, 0.7) 25%,
+    rgba(35, 85, 179, 0.7) 50%,
+    rgba(24, 58, 115, 0.7) 75%,
+    rgba(16, 37, 75, 0.6)  100%
+  );
+  box-shadow: 0 0 15px rgba(0, 200, 230, 0.637);
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.glass-effect {
+  backdrop-filter: blur(10px);
+  background: rgba(16, 37, 75, 0.8);
+  border: 1px solid rgba(0, 200, 230, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.nav-container {
+  position: relative;     /* potrzebne, żeby absolutne dzieci się odnosiły do tego kontenera */
+  justify-content: flex-start; /* zamiast space-between */
+}
+/* ────────────────────────────────────────────
+   1) Usuń domyślne znaczniki listy i rozłóż w poziomie
+   ──────────────────────────────────────────── */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 5.5rem;       /* odstęp między linkami */
+  list-style: none;  /* usuwa kropki */
+  padding: 0;
+  margin: 0;
+   justify-content: center;
+}
+
+/* ────────────────────────────────────────────
+   2) Styl samego <a> (klasa .nav-link)
+   ──────────────────────────────────────────── */
+.nav-link {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0;  /* zwiększa klikalny obszar */
+  transition: var(--transition);
+ 
+}
+.nav-link:hover,
+.nav-link:focus {
+  color: var(--primary-color);
+}
+
+/* ────────────────────────────────────────────
+   3) (opcjonalnie) podkreślenie lub tło przy najechaniu
+   ──────────────────────────────────────────── */
+.nav-link::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after,
+.nav-link:focus::after {
+  width: 100%;
+}
+.logo {
+  left: 0;
+}
+
+
+.main-content {
+  margin: 100px auto 0;
+  max-width: 1400px;
+  padding: 2rem;
+}
+
+a, 
+a img {
+  user-select: none;           /* uniemożliwia zaznaczanie i caret */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  caret-color: transparent;    /* ukrywa kursor tekstowy */
+}
+
+
+.grid-container {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  padding: 2rem;
+}
+.grid-container h2 {
+  text-align: center;
+}
+
+/* Ensure weapons and artifacts side by side, teams below */
+#builds.grid-container {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+#teams.grid-container {
+  grid-template-columns: 1fr;
+  margin-top: 2rem;
+}
+
+/* ==========================
+   Cards & Components
+   ========================== */
+
+  .artifact-grid img{
+    min-width: 6rem;
+    min-height: 6rem;
+    width: 100%;
+    justify-content: center;
+    
+   }
+  .artifact-grid li{
+    margin: 2rem;
+    
+   }
+
+.card-weapons,
+.card-artifacts,
+.card-teams,
+.card-talents {
+  background: var(--light-bg);
+  border-radius: 15px;
+  padding: 1.5rem;
+  transition: var(--transition);
+}
+.card-teams h3 {
+  margin-bottom: 1rem;
+}
+
+.card-weapons:hover,
+.card-artifacts:hover,
+.card-teams:hover,
+.card-talents:hover {
+  box-shadow: 0 10px 20px rgba(220, 50, 50, 0.2);
+  transform: translateY(-5px);
+}
+
+.character-image {
+  animation: float 3s ease-in-out infinite;
+  display: block;
+   filter: drop-shadow(0 0 20px rgba(0, 200, 230, 0.3));
+  margin: 1.5rem auto;
+  max-width: 850px;
+  width: 100%;
+  outline: none;
+  text-decoration: none;
+   user-select: none;           /* uniemożliwia zaznaczanie i caret */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  caret-color: transparent;    /* ukrywa kursor tekstowy */
+}
+.team-list {
+  display: grid;
+  list-style: none;
+  gap: 1rem;                       
+  grid-template-columns: repeat(4, 1fr);
+}
+#weapons-title{
+  padding-bottom: 1rem;
+}
+#artifacts-title{
+  padding-bottom: 1rem;
+}
+
+.artifact-grid h3 {
+  list-style: none;
+  /* text-align: center; */
+}
+
+.weapon-list,
+.talents,
+.passive {
+  list-style: none;
+}
+.card-talents h2{
+  text-align: center;
+}
+
+.weapon-list li,
+.artifact-grid li {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.weapon-list img,
+.artifact-grid img {
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
+  height: 80px;
+  width: 80px;
+}
+
+.weapon-list h4 {
+  margin: 0;
+}
+
+.weapon-list p {
+  margin-top: 0.5rem;
+}
+
+/* .team-list {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+} */
+
+.team-list li {
+  text-align: center;
+  padding-bottom: 0.5rem; 
+}
+
+.team-list img {
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
+  height: 130px;
+  object-fit: contain;
+  transition: var(--transition);
+  width: 100%;
+  outline: none;
+  margin-bottom: 0.5rem; 
+}
+
+.team-list img:hover {
+  box-shadow: 0 0 15px var(--primary-color);
+  transform: scale(1.1);
+}
+#teams-section-title {
+  text-align: center;
+}
+
+.talents,
+.passive {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-content: center;
+  padding: 1rem;
+}
+
+.talents li,
+.passive li {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 200, 230, 0.2);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.talents li:hover,
+.passive li:hover {
+  box-shadow: 0 5px 15px rgba(0, 200, 230, 0.3);
+  transform: translateY(-3px);
+}
+
+.talents img,
+.passive img {
+  height: 60px;
+  margin-bottom: 0.5rem;
+  width: 60px;
+}
+
+.talents p,
+.passive p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  max-width: 200px;
+}
+
+/* ==========================
+   Responsive Styles
+   ========================== */
+@media (max-width: 768px) {
+  .grid-container {
+    padding: 1rem;
+  }
+
+  .weapon-list,
+  .artifact-grid,
+  .team-list {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .weapon-list li,
+  .artifact-grid li {
+    flex-direction: column;
+  }
+
+  .team-list {
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+  }
+}
+/* ----------------------------------
+   Mobile menu / hamburger visibility
+   ---------------------------------- */
+
+/* 1) Domyślnie ukryj mobile-menu, overlay i hamburger */
+.mobile-menu,
+.menu-overlay,
+.hamburger {
+  display: none;
+}
+
+/* 2) Na szerokościach ≤768px: show hamburger, hide desktop-menu */
+@media (max-width: 768px) {
+  .desktop-menu {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+    #builds.grid-container {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+
+/* 3) Mobile-menu jako absolutne, pod headerem, ukryte do momentu dodania .open */
+.mobile-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  flex-direction: column;
+  background: var(--dark-bg);
+  padding: 1rem 0;
+  display: none; /* zostanie nadpisane, gdy dodasz .open */
+  z-index: 999;
+}
+.menu-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none; /* również uruchamiane przez .open */
+  z-index: 998;
+}
+
+/* 4) Klasa .open włączana przez JS pokazuje overlay i mobile-menu */
+.mobile-menu.open,
+.menu-overlay.open {
+  display: flex;
+}
+
+/* 5) Na szerokościach ≥769px upewnij się, że nic mobilnego się nie pokaże */
+@media (min-width: 769px) {
+  .mobile-menu,
+  .menu-overlay,
+  .hamburger {
+    display: none !important;
+  }
+  .desktop-menu {
+    display: flex !important;
+    position: absolute;     /* wyciągamy z flex flow */
+    left: 50%;              /* środek kontenera */
+    transform: translateX(-50%); /* dokładnie poziomo centrujemy */
+    top: 50%;               /* (opcjonalnie) wyrównaj pionowo */
+    transform: translate(-50%, -50%); /* jeśli dałeś też top:50% */
+    }
+}
+ 

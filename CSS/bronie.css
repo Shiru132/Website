@@ -1,0 +1,433 @@
+/* ========================
+   main theme colors
+   ======================== */
+:root {
+    --primary-color: #DFB478;
+    --secondary-color: #79A9FF;
+    --dark-bg: #1C2945;
+    --light-bg: #2E3B5B;
+    --card-bg: #324467;
+    --text-light: #F0EADC;
+    --text-muted: #A1A7B3;
+    --border-color: #5A6B84;
+
+    --transition-duration: 0.3s;
+    --transition-timing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --delay: 0ms;
+}
+
+/* ========================
+   Reset
+   ======================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    caret-color: transparent;
+    min-height: 100vh;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--dark-bg);
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+    background-image: linear-gradient(135deg,
+            #1C2945 0%,
+            rgba(46, 59, 91, 0.9) 30%,
+            rgba(121, 169, 255, 0.7) 60%,
+            rgba(46, 59, 91, 0.9) 90%,
+            #1C2945 100%);
+    background-size: 200% 200%;
+    animation: backgroundShift 12s ease infinite;
+}
+
+@keyframes backgroundShift {
+
+    0%,
+    100% {
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-position: 100% 100%;
+    }
+}
+
+/* ========================
+   header & glass effect
+   ======================== */
+header {
+    background: linear-gradient(52deg,
+            rgba(223, 180, 120, 0.8) 0%,
+            rgba(121, 169, 255, 0.8) 50%,
+            rgba(223, 180, 120, 0.8)100%);
+    box-shadow: 0 0 15px rgba(223, 180, 120, 0.6);
+    padding: 1.5rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    z-index: 1000;
+    display: flex;
+    transition: var(--transition-duration) var(--transition-timing);
+}
+
+.glass-effect {
+    backdrop-filter: blur(10px);
+    background: rgba(46, 59, 91, 0.6);
+    border: 1px solid rgba(223, 180, 120, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: center;
+    /* Centruje zawartość w poziomie */
+    align-items: center;
+    position: relative;
+    width: 100%;
+    /* Zajmuje całą dostępną szerokość */
+}
+
+.nav-links.desktop-menu {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    /* Usunięty auto */
+}
+
+.nav-link {
+    color: var(--text-light);
+    font-weight: 500;
+    padding: 0.75rem 0;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after {
+    width: 100%;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    color: var(--primary-color);
+}
+
+/* ========================
+   wyszukiwarka & filtry
+   ======================== */
+.search {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--light-bg);
+    color: var(--text-light);
+    text-align: center;
+    transition: border-color var(--transition-duration) var(--transition-timing);
+}
+
+.search:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.weapon-filters-type {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding-top: 7rem;
+    padding-bottom: 0.8rem;
+    text-align: center;
+}
+
+.weapon-filters-rarity {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding-bottom: 2rem;
+}
+
+.rarity {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.rarity:hover {
+    transform: scale(1.1);
+}
+
+/* ========================
+   lista broni
+   ======================== */
+.weapons-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    padding-top: 1.5rem;
+}
+
+.weapon-li {
+    display: grid;
+    grid-template-rows: 8fr 1fr auto;
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 1rem;
+    width: 200px;
+    height: 320px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(79, 137, 239, 0.3);
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+        opacity var(--transition-duration) var(--delay) var(--transition-timing),
+        transform var(--transition-duration) var(--delay) var(--transition-timing),
+        box-shadow 0.2s ease;
+}
+
+.weapon-li:not(.hidden) {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.weapon-li:hover {
+    box-shadow: 0 8px 20px rgba(79, 137, 239, 0.5);
+    transform: translateY(-5px);
+}
+
+.weapon-image {
+    grid-row: 1;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.weapon-name {
+    grid-row: 2;
+    align-self: end;
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.weapon-description {
+    grid-row: 3;
+    font-size: 0.95rem;
+    color: var(--text-light);
+    background: rgba(240, 234, 220, 0.1);
+    padding: 0.75rem;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+}
+
+.weapon-description:hover {
+    background: rgba(240, 234, 220, 0.2);
+}
+
+
+.weapon-filters-rarity li[data-rarity="4"] i.fa-star {
+    color: #8a0ca3;
+}
+
+.weapon-filters-rarity li[data-rarity="5"] i.fa-star {
+    color: #F1C40F;
+}
+
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.modal-window {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    box-shadow: 0 8px 16px rgba(79, 137, 239, 0.5);
+}
+
+.modal-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 1.5rem;
+    color: var(--text-light);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.modal-image {
+    width: 100%;
+    max-height: 50vh;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(79, 137, 239, 0.3);
+}
+
+.modal-title {
+    margin: 0;
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.modal-desc {
+    flex: 1;
+    overflow-y: auto;
+    font-size: 1rem;
+    line-height: 1.4;
+    color: var(--text-light);
+    background: rgba(240, 234, 220, 0.05);
+    padding: 0.75rem;
+    border-radius: 6px;
+}
+
+.modal-overlay.hidden {
+    display: none !important;
+}
+
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    /* Dla wersji mobilnej */
+    gap: 1.5rem;
+    list-style: none;
+    padding: 2rem;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: rgba(46, 59, 91, 0.95);
+    z-index: 999;
+}
+
+/* ==========================
+   Responsive: show/hide menus
+   ========================== */
+
+@media (max-width: 768px) {
+    .desktop-menu {
+        display: none !important;
+    }
+
+
+    .hamburger {
+
+        background: none;
+        border: none;
+        color: var(--text-light);
+        font-size: 1.5rem;
+        cursor: pointer;
+        position: absolute;
+        right: 1.5rem;
+        /* Odstęp od prawej krawędzi */
+        z-index: 1001;
+        margin-left: auto;
+        /* Wypycha na prawą stronę */
+    }
+
+    .mobile-menu {
+        display: none;
+
+        justify-content: center;
+        /* Wyśrodkowane */
+        flex-wrap: wrap;
+        /* Zawijanie przy wąskim ekranie */
+        gap: 1.5rem;
+        list-style: none;
+        padding: 1.5rem;
+        position: fixed;
+        top: 100%;
+        /* Bezpośrednio pod headerem */
+        left: 0;
+        width: 100%;
+        background: rgba(46, 59, 91, 0.95);
+        z-index: 999;
+        backdrop-filter: blur(10px);
+    }
+}
+
+
+@media (min-width: 769px) {
+
+    .hamburger,
+    .mobile-menu,
+    .menu-overlay {
+        display: none !important;
+    }
+
+    .desktop-menu {
+        display: flex;
+        gap: 4rem;
+        list-style: none;
+        margin: 0 auto;
+    }
+}
+
+
+.mobile-menu.open,
+.menu-overlay.open {
+    display: flex !important;
+}
+
+
+.weapon-4star {
+    border: 3px solid #8E44AD;
+
+    box-shadow:
+        0 2px 4px rgba(142, 68, 173, 0.4),
+        0 0 8px rgba(142, 68, 173, 0.3);
+    border-radius: 4px
+}
+
+.weapon-5star {
+    border: 3px solid #F1C40F;
+    box-shadow:
+        0 2px 4px rgba(241, 196, 15, 0.4),
+        0 0 8px rgba(241, 196, 15, 0.3);
+    border-radius: 4px;
+}
+
+.hidden {
+    display: none !important;
+}

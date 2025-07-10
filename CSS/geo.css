@@ -1,0 +1,414 @@
+/* ==========================
+   Variables
+   ========================== */
+:root {
+   --primary-color: #d4af37;      
+    --secondary-color: #b8860b;   
+    --dark-bg: #1a170a;             
+    --light-bg: #755b2f;          
+  --text-light: #ffffff;
+  --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ==========================
+   Reset & Base Styles
+   ========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  background: var(--dark-bg);
+  background-image: linear-gradient(
+    135deg,
+    rgba(60,59,42,1)    0%,
+    rgba(107, 103, 42, 0.9)  30%,
+    rgba(204,196,116,0.7) 50%,
+    rgba(107,103,42,0.9)  70%,
+    rgb(60, 59, 42)    100%
+  );
+  background-size: 200% 200%;
+  animation: geoBackground 10s ease infinite;
+  color: var(--text-light);
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ==========================
+   Keyframe Animations
+   ========================== */
+@keyframes geoBackground {
+  0%, 100% { background-position: 0% 0%; }
+  50%      { background-position: 100% 100%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+
+/* ==========================
+   Layout & Structure
+   ========================== */
+header {
+  background: linear-gradient(
+    52deg,
+    rgba(155,131,35,0.6)  0%,
+    rgba(183,157,56,0.7) 25%,
+    rgba(204,196,116,0.7) 50%,
+    rgba(183,157,56,0.7) 75%,
+    rgba(155,131,35,0.6) 100%
+  );
+  box-shadow: 0 0 15px rgba(204,196,116,0.637);
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.glass-effect {
+  backdrop-filter: blur(10px);
+  background: rgba(155,131,35,0.8);
+  border: 1px solid rgba(204,196,116,0.1);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.nav-container {
+  position: relative;
+  justify-content: flex-start;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 5.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+}
+
+.nav-link {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  transition: var(--transition);
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: var(--primary-color);
+}
+
+.nav-link::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after {
+  width: 100%;
+}
+.logo {
+  left: 0;
+}
+
+.main-content {
+  margin: 100px auto 0;
+  max-width: 1400px;
+  padding: 2rem;
+}
+
+a,
+a img {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  caret-color: transparent;
+}
+
+.grid-container {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  padding: 2rem;
+}
+
+.grid-container h2 {
+  text-align: center;
+}
+
+#builds.grid-container {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+#teams.grid-container {
+  grid-template-columns: 1fr;
+  margin-top: 2rem;
+}
+
+.artifact-grid img {
+  min-width: 6rem;
+  min-height: 6rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.artifact-grid li {
+  margin: 2rem;
+}
+
+.card-weapons,
+.card-artifacts,
+.card-teams,
+.card-talents {
+  background: var(--light-bg);
+  border-radius: 15px;
+  padding: 1.5rem;
+  transition: var(--transition);
+}
+
+.card-teams h3 {
+  margin-bottom: 1rem;
+}
+
+.card-weapons:hover,
+.card-artifacts:hover,
+.card-teams:hover,
+.card-talents:hover {
+  box-shadow: 0 10px 20px rgba(204,196,116,0.2);
+  transform: translateY(-5px);
+}
+
+.character-image {
+  animation: float 3s ease-in-out infinite;
+  display: block;
+  filter: drop-shadow(0 0 20px rgba(204,196,116,0.3));
+  margin: 1.5rem auto;
+  max-width: 850px;
+  width: 100%;
+  outline: none;
+  text-decoration: none;
+}
+
+.team-list {
+  display: grid;
+  list-style: none;
+  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+#weapons-title,
+#artifacts-title {
+  padding-bottom: 1rem;
+}
+
+.artifact-grid h3 {
+  list-style: none;
+}
+
+.weapon-list,
+.talents,
+.passive {
+  list-style: none;
+}
+
+.card-talents h2 {
+  text-align: center;
+}
+
+.weapon-list li,
+.artifact-grid li {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.weapon-list img,
+.artifact-grid img {
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
+  height: 80px;
+  width: 80px;
+}
+
+.weapon-list h4 {
+  margin: 0;
+}
+
+.weapon-list p {
+  margin-top: 0.5rem;
+}
+
+.team-list li {
+  text-align: center;
+  padding-bottom: 0.5rem;
+}
+
+.team-list img {
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
+  height: 130px;
+  object-fit: contain;
+  transition: var(--transition);
+  width: 100%;
+  outline: none;
+  margin-bottom: 0.5rem;
+}
+
+.team-list img:hover {
+  box-shadow: 0 0 15px var(--primary-color);
+  transform: scale(1.1);
+}
+
+#teams-section-title {
+  text-align: center;
+}
+
+.talents,
+.passive {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-content: center;
+  padding: 1rem;
+}
+
+.talents li,
+.passive li {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(204,196,116,0.2);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.talents li:hover,
+.passive li:hover {
+  box-shadow: 0 5px 15px rgba(204,196,116,0.3);
+  transform: translateY(-3px);
+}
+
+.talents img,
+.passive img {
+  height: 60px;
+  margin-bottom: 0.5rem;
+  width: 60px;
+}
+
+.talents p,
+.passive p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  max-width: 200px;
+}
+
+/* Responsive & Mobile Menu */
+
+@media (max-width: 768px) {
+  .grid-container {
+    padding: 1rem;
+  }
+  .weapon-list,
+  .artifact-grid,
+  .team-list {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .weapon-list li,
+  .artifact-grid li {
+    flex-direction: column;
+  }
+  .team-list {
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+  }
+}
+
+.mobile-menu,
+.menu-overlay,
+.hamburger {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-menu {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  #builds.grid-container {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.mobile-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  flex-direction: column;
+  background: var(--dark-bg);
+  padding: 1rem 0;
+  display: none;
+  z-index: 999;
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 998;
+}
+
+.mobile-menu.open,
+.menu-overlay.open {
+  display: flex;
+}
+
+@media (min-width: 769px) {
+  .mobile-menu,
+  .menu-overlay,
+  .hamburger {
+    display: none !important;
+  }
+  .desktop-menu {
+    display: flex !important;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+  }
+}
