@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artefakty</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/png" sizes="64x64" href="img/zdjfavicon.png">
+
+
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script type="module" src="bronieJS/bronie.js" defer></script>
+    <link rel="stylesheet" href="CSS/bronie.css">
+    
+</head>
+<body>
+    <header class="glass-effect">
+    <nav class="nav-container" aria-label="Główna nawigacja">
+      
+      <ul class="nav-links desktop-menu">
+        <li><a href="gallery.html" class="nav-link">Postacie</a></li>
+        <li><a href="Bronie.html" class="nav-link">Bronie</a></li>
+        <li><a href="artefakty.html" class="nav-link">Artefakty</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Otwórz menu"><i class="fas fa-bars"></i></button>
+      <div class="menu-overlay" aria-hidden="true"></div>
+    </nav>
+    <ul class="mobile-menu" aria-label="Menu mobilne">
+      <li><a href="gallery.html" class="nav-link">Postacie</a></li>
+      <li><a href="Bronie.html" class="nav-link">Bronie</a></li>
+      <li><a href="artefakty.html" class="nav-link">Artefakty</a></li>
+    </ul>
+  </header>
+
+    <main class="menu-container">
+                <ul class="weapon-filters-type">
+            <!-- wybór typu broni -->
+            <li data-type="claymore">
+                <img src="/img/bronieZdj/claymore.png" alt="Claymore">Claymore
+            </li>
+            <li data-type="catalyst">
+                <img src="/img/bronieZdj/catalyst.png" alt="Catalyst">Catalyst
+            </li>
+            <li data-type="polearm">
+                <img src="/img/bronieZdj/polearm.png" alt="Polearm">Polearm
+            </li>
+            <li data-type="bow">
+                <img src="/img/bronieZdj/bow.png" alt="Bow">Bow
+            </li>
+            <li data-type="sword">
+                <img src="/img/bronieZdj/sword.png" alt="Sword">Sword
+            </li>
+                </ul>
+            <ul class="weapon-filters-rarity">
+            <!-- wybór rarity -->
+            <li class="rarity" data-rarity="4" id="four">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                
+            </li>
+            <li class="rarity" data-rarity="5" id="five">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                
+            </li>
+            </ul>
+
+        <input class="search" type="text" id="searchInput" placeholder="Szukaj broni...">
+        <ul class="weapons-list">
+
+        </ul>
+
+<div id="weaponModal" class="modal-overlay hidden">
+  <div class="modal-window">
+    <button class="modal-close">&times;</button>
+    <img class="modal-image" src="" alt="">
+    <h2 class="modal-title"></h2>
+    <p class="modal-desc"></p>
+  </div>
+</div>
+        
+    </main>
+    
+</body>
+</html>
