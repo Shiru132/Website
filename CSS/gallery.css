@@ -1,25 +1,25 @@
 :root {
   /* Główne kolory tekstu i akcentów */
-  --primary-color: #e0e0e0;     /* jasnoszary dla tekstu i linków */
-  --secondary-color: #bbbbbb;   /* nieco ciemniejszy szary do hoverów i podkreśleń */
+  --primary-color: #e0e0e0;    
+  --secondary-color: #bbbbbb;  
 
   /* Tła */
-  --dark-bg: #1a1a1a;           /* głębokie, prawie czarne tło strony */
-  --light-bg: #2a2a2a;          /* ciemnoszare tło sekcji */
+  --dark-bg: #1a1a1a;          
+  --light-bg: #2a2a2a;          
 
   /* Karty */
-  --card-bg: #686868;           /* lekko jaśniejsze od tła, by odcinać karty */
+  --card-bg: #686868;           
 
   /* Tekst */
-  --text-light: #ffffff;        /* czysty biały dla kontrastu */
-  --text-muted: #777777;        /* przytłumiony szary do mniejszych napisów */
+  --text-light: #ffffff;        
+  --text-muted: #777777;      
 
   /* Obramowania i linie */
-  --border-color: #3e3e3e;      /* neutralny ciemny szary */
+  --border-color: #3e3e3e;      
 
   /* Przejścia */
   --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-   --card-text-color: #ffffff; /* domyślnie biały */
+   --card-text-color: #ffffff; 
 }
 
 html {
@@ -54,7 +54,7 @@ body {
             rgba(65, 65, 65, 0.9) 70%,
             rgba(39, 39, 39, 1)   100%
           );
-            background-size: 200% 200%;  /* Larger background size for animation */
+            background-size: 200% 200%;  
             animation: backgroundShift 10s ease infinite;
       }
 
@@ -64,7 +64,7 @@ body {
                 100% { background-position: 0%   0%; }
               }
           .glass-effect {
-              background: rgba(27, 27, 27, 0.6);       /* ciemnoszare szkło */
+              background: rgba(27, 27, 27, 0.6);       
               backdrop-filter: blur(10px);
               -webkit-backdrop-filter: blur(10px);
               border-radius: 15px;
@@ -275,7 +275,7 @@ body {
     padding: 1rem;
     text-align: center;
     font-weight: 600;
-    /* color: #00c8e6; */
+
 }
 
 .search-filter {
