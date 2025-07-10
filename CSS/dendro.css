@@ -2,11 +2,11 @@
    Variables
    ========================== */
 :root {
-  --primary-color: #88C057;   /* jasna Dendro zieleń */
-  --secondary-color: #B7E28F; /* pastelowa Dendro zieleń */
-  --dark-bg: #112D13;         /* głęboka lasowa ciemna zieleń */
-  --light-bg: #244C26;        /* łagodniejsza zieleń podłoża */
-  --text-light: #F0F8F0;      /* delikatny jasny odcień */
+  --primary-color: #88C057;  
+  --secondary-color: #B7E28F; 
+  --dark-bg: #112D13;       
+  --light-bg: #244C26;        
+  --text-light: #F0F8F0;      
   --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -31,7 +31,7 @@ body {
     rgba(17, 45, 19, 1)   100%
   );
   background-size: 200% 200%;
-  animation: pyroBackground 10s ease infinite; /* nazwa keyframe'a zostaje, kolory już dendro */
+  animation: pyroBackground 10s ease infinite; 
   color: var(--text-light);
   font-family: 'Poppins', sans-serif;
   line-height: 1.6;
