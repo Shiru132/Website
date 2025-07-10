@@ -82,30 +82,26 @@ header {
 }
 
 .nav-container {
-  position: relative;     /* potrzebne, żeby absolutne dzieci się odnosiły do tego kontenera */
-  justify-content: flex-start; /* zamiast space-between */
+  position: relative;     
+  justify-content: flex-start; 
 }
-/* ────────────────────────────────────────────
-   1) Usuń domyślne znaczniki listy i rozłóż w poziomie
-   ──────────────────────────────────────────── */
+
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 5.5rem;       /* odstęp między linkami */
-  list-style: none;  /* usuwa kropki */
+  gap: 5.5rem;       
+  list-style: none; 
   padding: 0;
   margin: 0;
    justify-content: center;
 }
 
-/* ────────────────────────────────────────────
-   2) Styl samego <a> (klasa .nav-link)
-   ──────────────────────────────────────────── */
+
 .nav-link {
   color: var(--text-light);
   text-decoration: none;
   font-weight: 500;
-  padding: 0.5rem 0;  /* zwiększa klikalny obszar */
+  padding: 0.5rem 0; 
   transition: var(--transition);
  
 }
@@ -114,9 +110,7 @@ header {
   color: var(--primary-color);
 }
 
-/* ────────────────────────────────────────────
-   3) (opcjonalnie) podkreślenie lub tło przy najechaniu
-   ──────────────────────────────────────────── */
+
 .nav-link::after {
   content: '';
   display: block;
@@ -142,11 +136,11 @@ header {
 
 a, 
 a img {
-  user-select: none;           /* uniemożliwia zaznaczanie i caret */
+  user-select: none;         
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  caret-color: transparent;    /* ukrywa kursor tekstowy */
+  caret-color: transparent;    
 }
 
 
@@ -160,7 +154,7 @@ a img {
   text-align: center;
 }
 
-/* Ensure weapons and artifacts side by side, teams below */
+
 #builds.grid-container {
   grid-template-columns: repeat(2, 1fr);
 }
@@ -216,11 +210,11 @@ a img {
   width: 100%;
   outline: none;
   text-decoration: none;
-   user-select: none;           /* uniemożliwia zaznaczanie i caret */
+   user-select: none;         
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  caret-color: transparent;    /* ukrywa kursor tekstowy */
+  caret-color: transparent;    
 }
 .team-list {
   display: grid;
@@ -375,14 +369,14 @@ a img {
    Mobile menu / hamburger visibility
    ---------------------------------- */
 
-/* 1) Domyślnie ukryj mobile-menu, overlay i hamburger */
+
 .mobile-menu,
 .menu-overlay,
 .hamburger {
   display: none;
 }
 
-/* 2) Na szerokościach ≤768px: show hamburger, hide desktop-menu */
+
 @media (max-width: 768px) {
   .desktop-menu {
     display: none;
@@ -404,7 +398,7 @@ a img {
 }
 
 
-/* 3) Mobile-menu jako absolutne, pod headerem, ukryte do momentu dodania .open */
+
 .mobile-menu {
   position: absolute;
   top: 100%;
@@ -413,7 +407,7 @@ a img {
   flex-direction: column;
   background: var(--dark-bg);
   padding: 1rem 0;
-  display: none; /* zostanie nadpisane, gdy dodasz .open */
+  display: none;
   z-index: 999;
 }
 .menu-overlay {
@@ -421,17 +415,17 @@ a img {
   top: 0; left: 0;
   width: 100%; height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  display: none; /* również uruchamiane przez .open */
+  display: none; 
   z-index: 998;
 }
 
-/* 4) Klasa .open włączana przez JS pokazuje overlay i mobile-menu */
+
 .mobile-menu.open,
 .menu-overlay.open {
   display: flex;
 }
 
-/* 5) Na szerokościach ≥769px upewnij się, że nic mobilnego się nie pokaże */
+
 @media (min-width: 769px) {
   .mobile-menu,
   .menu-overlay,
@@ -440,11 +434,11 @@ a img {
   }
   .desktop-menu {
     display: flex !important;
-    position: absolute;     /* wyciągamy z flex flow */
-    left: 50%;              /* środek kontenera */
-    transform: translateX(-50%); /* dokładnie poziomo centrujemy */
-    top: 50%;               /* (opcjonalnie) wyrównaj pionowo */
-    transform: translate(-50%, -50%); /* jeśli dałeś też top:50% */
+    position: absolute;     
+    left: 50%;              
+    transform: translateX(-50%);
+    top: 50%;               
+    transform: translate(-50%, -50%); 
     }
 }
  
