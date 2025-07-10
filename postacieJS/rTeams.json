@@ -1,0 +1,34 @@
+{ "characters": [
+    {"Hypercarry":[
+    { "name": "Neuvillette",   "image": "/img/portretyZdj/pneuvillette.png",   "element": "hydro",   "link": "neuvillette.html" },
+    { "name": "Clorinde",      "image": "/img/portretyZdj/pclorinde.png",      "element": "electro", "link": "clorinde.html"    },
+    { "name": "Furina",        "image": "/img/portretyZdj/pfurina.png",        "element": "hydro",   "link": "furina.html"      }
+    ]},
+    {"Hyperbloom": [
+    { "name": "Mualani",       "image": "/img/portretyZdj/pmualani.png",       "element": "hydro",   "link": "mualani.html"     },
+    { "name": "Shogun",        "image": "/img/portretyZdj/pshogun.png",        "element": "hydro",   "link": "shogun.html"      },
+    { "name": "Navia",         "image": "/img/portretyZdj/pnavia.png",         "element": "geo",     "link": "navia.html"       }
+    ]},
+    {"Freeze": [
+    { "name": "Mualani",       "image": "/img/portretyZdj/pmualani.png",       "element": "hydro",   "link": "mualani.html"     },
+    { "name": "Shogun",        "image": "/img/portretyZdj/pshogun.png",        "element": "hydro",   "link": "shogun.html"      },
+    { "name": "Navia",         "image": "/img/portretyZdj/pnavia.png",         "element": "geo",     "link": "navia.html"       }
+    ]},
+    {"Vaporize": [
+    { "name": "Mualani",       "image": "/img/portretyZdj/pmualani.png",       "element": "hydro",   "link": "mualani.html"     },
+    { "name": "Shogun",        "image": "/img/portretyZdj/pshogun.png",        "element": "hydro",   "link": "shogun.html"      },
+    { "name": "Navia",         "image": "/img/portretyZdj/pnavia.png",         "element": "geo",     "link": "navia.html"       }
+    ]},
+    {"Melt": [
+    { "name": "Mualani",       "image": "/img/portretyZdj/pmualani.png",       "element": "hydro",   "link": "mualani.html"     },
+    { "name": "Shogun",        "image": "/img/portretyZdj/pshogun.png",        "element": "hydro",   "link": "shogun.html"      },
+    { "name": "Navia",         "image": "/img/portretyZdj/pnavia.png",         "element": "geo",     "link": "navia.html"       }
+    ]},
+    {"Overload": [
+    { "name": "Mualani",       "image": "/img/portretyZdj/pmualani.png",       "element": "hydro",   "link": "mualani.html"     },
+    { "name": "Shogun",        "image": "/img/portretyZdj/pshogun.png",        "element": "hydro",   "link": "shogun.html"      },
+    { "name": "Navia",         "image": "/img/portretyZdj/pnavia.png",         "element": "geo",     "link": "navia.html"       }
+    ]}
+]}
+    
+   

@@ -1,0 +1,39 @@
+{
+  "characters": [
+    {
+      "name": "Arlecchino",
+      "artifacts": [
+        {
+          "artifactName": "Crimson Witch of Flames",
+          "image": "/img/artefakty/CrimsonWitchOfFlames.png",
+          "link": "artifacts.html#CrimsonWitchOfFlames",
+          "describe": "Max Rarity: 5 | 2-piece bonus: Gain a 15% Pyro DMG Bonus. | 4-piece bonus: Increases Overloaded and Burning DMG by 40%..."
+        },
+        {
+          "artifactName": "Shimenawa's Reminiscence",
+          "image": "/img/artefakty/ShimenawasReminiscence.png",
+          "link": "artifacts.html#ShimenawasReminiscence",
+          "describe": "Max Rarity: 5 | 2-piece bonus: ATK +18% | 4-piece bonus: When casting an Elemental Skill..."
+        }
+      ]
+    },
+    {
+      "name": "Neuvillette",
+      "artifacts": [
+        {
+          "artifactName": "Heart of Depth",
+          "image": "/img/artefakty/HeartOfDepth.png",
+          "link": "artifacts.html#HeartOfDepth",
+          "describe": "Max Rarity: 5 | 2-piece bonus: Hydro DMG Bonus +15% | 4-piece bonus: After using Elemental Skill..."
+        },
+        {
+          "artifactName": "Noblesse Oblige",
+          "image": "/img/artefakty/NoblesseOblige.png",
+          "link": "artifacts.html#NoblesseOblige",
+          "describe": "Max Rarity: 5 | 2-piece bonus: Elemental Burst DMG +20% | 4-piece bonus: Using an Elemental Burst increases all party members' ATK by 20%..."
+        }
+      ]
+    }
+    
+  ]
+}
